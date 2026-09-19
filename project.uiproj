@@ -1,0 +1,6 @@
+{
+  "Name": "BankReconciliation_Dispatcher",
+  "ProjectType": "Process",
+  "Description": "Validates bank statement transactions and loads normalised transactions into BR_RECON_QUEUE with duplicate protection and recovery control",
+  "MainFile": "Main.xaml"
+}

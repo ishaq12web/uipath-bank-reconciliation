@@ -1,0 +1,671 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>GlobalVariablesT1PNoYwrqg</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="638.6666666666666,7348" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="archiveFilePath" />
+      <Variable x:TypeArguments="x:String" Name="archiveRunFolder" />
+      <Variable x:TypeArguments="s:String[]" Name="inputFiles" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="rejectedCount" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="queuedCount" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtBankTransactions" />
+      <Variable x:TypeArguments="x:String" Name="inputFilePath" />
+      <Variable x:TypeArguments="x:String" Name="runId" />
+      <Variable x:TypeArguments="s:String[]" Name="requiredColumns" />
+      <Variable x:TypeArguments="s:String[]" Name="missingColumns" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="validationError" />
+      <Variable x:TypeArguments="s:DateTime" Name="valueDate" />
+      <Variable x:TypeArguments="x:Decimal" Name="creditAmount" />
+      <Variable x:TypeArguments="s:DateTime" Name="transactionDate" />
+      <Variable x:TypeArguments="x:String" Name="currentCurrency" />
+      <Variable x:TypeArguments="x:Decimal" Name="debitAmount" />
+      <Variable x:TypeArguments="x:String" Name="currentBankTxnId" />
+      <Variable x:TypeArguments="x:String" Name="currentReference" />
+      <Variable x:TypeArguments="s:String[]" Name="duplicateTxnIds" />
+      <Variable x:TypeArguments="x:String" Name="sourceRowNumber" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign Run ID" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">runId</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"BR-"+DateTime.Now.ToString("yyyyMMdd-HHmmss")</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Initiating Dispatcher" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"Bank reconciliation dispatcher started. RunId" + runId</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <Assign DisplayName="Find Bank Statement Files" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">
+          <CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">inputFiles</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">
+          <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">System.IO.Directory.GetFiles(System.IO.Path.Combine(Environment.CurrentDirectory, "Data", "Input"), "BankStatement_*.xlsx")</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <If sap:VirtualizedContainerService.HintSize="560,6795.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Condition>
+        <InArgument x:TypeArguments="x:Boolean">
+          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">inputFiles.Length != 1</CSharpValue>
+        </InArgument>
+      </If.Condition>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="558,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw DisplayName="Throw Bank Statement Error" sap:VirtualizedContainerService.HintSize="524,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1">
+            <InArgument x:TypeArguments="s:Exception">
+              <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">new System.Exception("Expected exactly one bank statement file but found " + inputFiles.Length.ToString())</CSharpValue>
+            </InArgument>
+          </Throw>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="558,6490" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Input File" sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">inputFilePath</CSharpReference>
+              </OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">inputFiles[0]</CSharpValue>
+              </InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+            <ui:LogMessage.Message>
+              <InArgument x:TypeArguments="x:Object">
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">"Input bank statement selected: "+inputFilePath</CSharpValue>
+              </InArgument>
+            </ui:LogMessage.Message>
+          </ui:LogMessage>
+          <Assign DisplayName="Build Archive Run Folder" sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">archiveRunFolder</CSharpReference>
+              </OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">System.IO.Path.Combine(Environment.CurrentDirectory, "Data", "Archive", runId)</CSharpValue>
+              </InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="524,124" sap2010:WorkflowViewState.IdRef="CreateDirectory_1">
+            <ui:CreateDirectory.Path>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">archiveRunFolder</CSharpValue>
+              </InArgument>
+            </ui:CreateDirectory.Path>
+          </ui:CreateDirectory>
+          <Assign DisplayName="Build Archive File Path" sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">
+                <CSharpReference x:TypeArguments="x:Int32">archiveFilePath</CSharpReference>
+              </OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">System.IO.Path.Combine(archiveRunFolder, System.IO.Path.GetFileName(inputFilePath))</CSharpValue>
+              </InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:CopyFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="524,224.66666666666666" sap2010:WorkflowViewState.IdRef="CopyFile_1">
+            <ui:CopyFile.Destination>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">archiveFilePath</CSharpValue>
+              </InArgument>
+            </ui:CopyFile.Destination>
+            <ui:CopyFile.Path>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">inputFilePath</CSharpValue>
+              </InArgument>
+            </ui:CopyFile.Path>
+          </ui:CopyFile>
+          <If DisplayName="If Archive File Not Exist" sap:VirtualizedContainerService.HintSize="524,542" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Condition>
+              <InArgument x:TypeArguments="x:Boolean">
+                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">!System.IO.File.Exists(archiveFilePath)</CSharpValue>
+              </InArgument>
+            </If.Condition>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_2">
+                  <InArgument x:TypeArguments="s:Exception">
+                    <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">new System.Exception("Disaster recovery archive creation failed. RunId= " + runId)</CSharpValue>
+                  </InArgument>
+                </Throw>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">"Input archive successfully created. RunId= " + runId + "; ArchivePath= " + archiveFilePath</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ueab:ExcelApplicationCard DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="524,4384" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None">
+            <ueab:ExcelApplicationCard.Body>
+              <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522,4152" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="488,172" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" VisibleOnly="False">
+                    <ueab:ReadRangeX.Range>
+                      <InArgument x:TypeArguments="ue:IReadRangeRef">
+                        <CSharpValue x:TypeArguments="ue:IReadRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">Excel.Sheet["Transactions"]</CSharpValue>
+                      </InArgument>
+                    </ueab:ReadRangeX.Range>
+                    <ueab:ReadRangeX.SaveTo>
+                      <OutArgument x:TypeArguments="sd:DataTable">
+                        <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">dtBankTransactions</CSharpReference>
+                      </OutArgument>
+                    </ueab:ReadRangeX.SaveTo>
+                  </ueab:ReadRangeX>
+                  <If sap:VirtualizedContainerService.HintSize="488,542" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">dtBankTransactions == null || dtBankTransactions.Rows.Count == 0</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Throw sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_3">
+                          <InArgument x:TypeArguments="s:Exception">
+                            <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">new System.Exception("Bank statement contains no transactions. RunId=" + runId)</CSharpValue>
+                          </InArgument>
+                        </Throw>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="s:String[]" Name="requiredColumns" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info">
+                          <ui:LogMessage.Message>
+                            <InArgument x:TypeArguments="x:Object">
+                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"Bank statement loaded successfully. RunId = "+ runId + "; Rows= " + dtBankTransactions.Rows.Count.ToString()</CSharpValue>
+                            </InArgument>
+                          </ui:LogMessage.Message>
+                        </ui:LogMessage>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_8">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:String[]">
+                        <CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">requiredColumns</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:String[]">
+                        <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">new string[] {"BankTxnId", "AccountNumber", "TransactionDate", "ValueDate", "Reference", "Description", "Debit", "Credit", "Currency"}</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:String[]">
+                        <CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">missingColumns</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:String[]">
+                        <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23" xml:space="preserve">requiredColumns
+    .Where(c =&gt; !dtBankTransactions.Columns.Contains(c))
+    .ToArray()</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If sap:VirtualizedContainerService.HintSize="488,542" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">missingColumns.Length &gt; 0</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Throw sap:VirtualizedContainerService.HintSize="416,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_4">
+                          <InArgument x:TypeArguments="s:Exception">
+                            <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">new System.Exception("Invalid bank statement schema. Missing columns: " + string.Join(",", missingColumns) + ". RunId=" + runId)</CSharpValue>
+                          </InArgument>
+                        </Throw>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info">
+                          <ui:LogMessage.Message>
+                            <InArgument x:TypeArguments="x:Object">
+                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">"Bank statement schema validation passed. RunId=" + runId</CSharpValue>
+                            </InArgument>
+                          </ui:LogMessage.Message>
+                        </ui:LogMessage>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="scg:List(x:String)">
+                        <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">validationError</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="scg:List(x:String)">
+                        <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">new List&lt;string&gt;()</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:String[]">
+                        <CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">duplicateTxnIds</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:String[]">
+                        <CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">dtBankTransactions.AsEnumerable().Select(r =&gt; Convert.ToString(r["BankTxId"]).Trim()).Where(x =&gt; !string.IsNullOrWhiteSpace(x)).GroupBy(x =&gt; x).Where(g =&gt; g.Count() &gt;1).Select(g =&gt; g.Key).ToArray()</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If sap:VirtualizedContainerService.HintSize="488,1680.6666666666667" sap2010:WorkflowViewState.IdRef="If_5">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">duplicateTxnIds.Length &gt; 0</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,1450" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_18">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:List(x:String)">
+                              <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">validationError</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:List(x:String)">
+                              <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">validationError.Append("Duplicate BankTxnId(s): "+ string.Join(", ", duplicateTxnIds)).ToList()</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="452,764.6666666666666" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                          <ui:ForEachRow.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="currentRow" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,580.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">currentBankTxnId</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">Convert.ToString(currentRow["BankTxnId"]).Trim()</CSharpValue>
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">currentReference</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">Convert.ToString(currentRow["Reference"]).Trim()</CSharpValue>
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">currentCurrency</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">Convert.ToString(currentRow["Currency"]).Trim().ToUpperInvariant()</CSharpValue>
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEachRow.Body>
+                          <ui:ForEachRow.DataTable>
+                            <InArgument x:TypeArguments="sd:DataTable">
+                              <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">dtBankTransactions</CSharpValue>
+                            </InArgument>
+                          </ui:ForEachRow.DataTable>
+                        </ui:ForEachRow>
+                        <If sap:VirtualizedContainerService.HintSize="452,448.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
+                          <If.Condition>
+                            <InArgument x:TypeArguments="x:Boolean">
+                              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">string.IsNullOrWhiteSpace(currentBankTxnId)</CSharpValue>
+                            </InArgument>
+                          </If.Condition>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="scg:List(x:String)">
+                                    <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">validationError</CSharpReference>
+                                  </OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="scg:List(x:String)">
+                                    <CSharpValue x:TypeArguments="scg:List(x:String)">validationError.Append("Missing BankTxnId at source row" + (dtBankTransactions.Rows.IndexOf(currentRow) + 2)).ToString().ToList()</CSharpValue>
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <If sap:VirtualizedContainerService.HintSize="488,448.6666666666667" sap2010:WorkflowViewState.IdRef="If_7">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">string.IsNullOrWhiteSpace(currentReference)</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_20">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:List(x:String)">
+                              <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">validationError</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:List(x:String)">
+                              <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">validationError.Append("Missing Reference for BankTxnId = "+ currentBankTxnId).ToList()</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ueab:ExcelApplicationCard.Body>
+            <ueab:ExcelApplicationCard.WorkbookPath>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">archiveFilePath</CSharpValue>
+              </InArgument>
+            </ueab:ExcelApplicationCard.WorkbookPath>
+          </ueab:ExcelApplicationCard>
+          <If sap:VirtualizedContainerService.HintSize="524,448.6666666666667" sap2010:WorkflowViewState.IdRef="If_8">
+            <If.Condition>
+              <InArgument x:TypeArguments="x:Boolean">
+                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">currentCurrency != "NGN"</CSharpValue>
+              </InArgument>
+            </If.Condition>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_21">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:List(x:String)">
+                      <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">validationError</CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:List(x:String)">
+                      <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">validationError.Append("Unsupported currency for BankTxnId =" + currentBankTxnId + ": "+ currentCurrency).ToList()</CSharpValue>
+                    </InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
