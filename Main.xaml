@@ -115,7 +115,7 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="638.6666666666666,7348" sap2010:WorkflowViewState.IdRef="Sequence_6">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="archiveFilePath" />
+      <Variable x:TypeArguments="x:Int32" Name="archiveFilePath" />
       <Variable x:TypeArguments="x:String" Name="archiveRunFolder" />
       <Variable x:TypeArguments="s:String[]" Name="inputFiles" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="rejectedCount" />
@@ -134,6 +134,7 @@
       <Variable x:TypeArguments="x:String" Name="currentBankTxnId" />
       <Variable x:TypeArguments="x:String" Name="currentReference" />
       <Variable x:TypeArguments="s:String[]" Name="duplicateTxnIds" />
+      <Variable x:TypeArguments="x:String" Name="sourceRowNumber" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -238,8 +239,8 @@
           </ui:CreateDirectory>
           <Assign DisplayName="Build Archive File Path" sap:VirtualizedContainerService.HintSize="524,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">archiveFilePath</CSharpReference>
+              <OutArgument x:TypeArguments="x:Int32">
+                <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">archiveFilePath</CSharpReference>
               </OutArgument>
             </Assign.To>
             <Assign.Value>
@@ -551,7 +552,7 @@
                                 </Assign.To>
                                 <Assign.Value>
                                   <InArgument x:TypeArguments="scg:List(x:String)">
-                                    <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">validationError.Append("Missing BankTxnId at source row" + (dtBankTransactions.Rows.IndexOf(currentRow) + 2).ToString().ToList()</CSharpValue>
+                                    <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">validationError.Append("Missing BankTxnId at source row" + (dtBankTransactions.Rows.IndexOf(currentRow) + 2)).ToString().ToList()</CSharpValue>
                                   </InArgument>
                                 </Assign.Value>
                               </Assign>
