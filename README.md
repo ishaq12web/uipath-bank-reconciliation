@@ -1,263 +1,160 @@
-An enterprise-style bank reconciliation automation built with UiPath.
- 
-This repository contains the **Dispatcher** component of a two-process automation architecture.
- 
-The solution uses:
- 
-- UiPath Studio
-- UiPath Orchestrator Queues
-- Dispatcher / Performer architecture
-- REFramework for transaction processing
-- Excel-based transaction input
-- Queue-based workload distribution
-- Exception handling and retry support
-- Audit-friendly transaction processing
- 
----
- 
+Use the following as `README.md` in each repository. Replace the companion-repository placeholders with your actual GitHub URLs.
+
+**Dispatcher repository — `README.md`**
+
+```markdown
+# Bank Reconciliation Dispatcher
+
+A UiPath automation that validates an Excel bank statement, archives the source file, and sends transactions to an Orchestrator queue for reconciliation.
+
+This repository contains the Dispatcher. A separate REFramework Performer retrieves the queue items, matches them against a dummy ledger, produces a CSV report, and routes business exceptions for investigation.
+
+**Companion repository:** [Bank Reconciliation Performer](https://github.com/ishaq12web/uipath-bank-reconciliation-performer)
+
+## Project status
+
+Working portfolio demonstration using synthetic transaction data.
+
+The Dispatcher and Performer have been exercised together. The Performer has also been tested with matched and missing-ledger transactions.
+
+This is a demonstration project, not a production banking deployment.
+
+## Business problem
+
+Manual reconciliation requires staff to check statement files, identify invalid records, compare transactions against ledger entries, and investigate differences.
+
+The Dispatcher prepares validated, traceable work items so reconciliation can run independently through the Performer.
+
 ## Architecture
- 
-The automation is split into two independent UiPath processes.
- 
-```text
-Bank Statement / Input File
-            |
-            v
-+---------------------------+
-| Bank Reconciliation       |
-| Dispatcher                |
-|                           |
-| - Read input file         |
-| - Validate records        |
-| - Prepare queue data      |
-| - Add queue items         |
-+-------------+-------------+
-              |
-              v
-      UiPath Orchestrator
-        BR_RECON_QUEUE
-              |
-              v
-+---------------------------+
-| Bank Reconciliation       |
-| Performer                 |
-|                           |
-| REFramework               |
-| - Get Queue Item          |
-| - Process transaction     |
-| - Match / reconcile       |
-| - Handle exceptions       |
-| - Retry system failures   |
-| - Set transaction status  |
-+-------------+-------------+
-              |
-              v
-     Reconciliation Output
-Dispatcher
-This repository contains the Dispatcher.
-Its responsibility is to collect transactions from the source file, validate them and create transaction items inside the UiPath Orchestrator queue.
-The Dispatcher does not perform the full reconciliation itself.
-Transaction-level processing is delegated to the separate REFramework Performer.
-Dispatcher Workflow
-START
-  |
-  v
-Load Bank Statement
-  |
-  v
-Validate Input Data
-  |
-  v
-Transform Transaction Data
-  |
-  v
-For Each Transaction
-  |
-  v
-Create Queue Item
-  |
-  v
-BR_RECON_QUEUE
-  |
-  v
-END
-Orchestrator Queue
-The solution uses an Orchestrator queue called:
-BR_RECON_QUEUE
-Each valid bank transaction is submitted as an individual queue item.
-This enables the Performer to process transactions independently.
-Using an Orchestrator Queue provides:
-Transaction isolation
-Retry capability
-Centralized monitoring
-Queue status tracking
-Scalability
-Better exception handling
-Auditability
-Dispatcher / Performer Pattern
-The solution follows the common UiPath Dispatcher/Performer architecture.
-Dispatcher
-Responsible for:
-Reading source transactions
-Validating required information
-Transforming data
-Creating queue items
-Preventing invalid data from entering the processing stage
-Performer
-Responsible for:
-Retrieving transactions from Orchestrator
-Performing reconciliation logic
-Identifying matched and unmatched transactions
-Handling business exceptions
-Handling system exceptions
-Retrying recoverable failures
-Updating queue transaction status
-Producing processing results
-Performer Repository
-The Performer is maintained as a separate UiPath project and uses the Robotic Enterprise Framework (REFramework).
-Repository:
-uipath-bank-reconciliation-performer
-GitHub link will be added here once the Performer repository is published.
-Why Two Processes?
-Separating the automation into Dispatcher and Performer components provides several advantages.
-The Dispatcher focuses only on preparing work.
-The Performer focuses only on executing individual transactions.
-This allows the automation to:
-Process large transaction volumes
-Resume processing after failures
-Retry failed system transactions
-Separate data ingestion from business processing
-Scale to multiple robots
-Monitor individual transactions through Orchestrator
-Recover without restarting the entire batch
-Project Structure
-Example structure:
-BankReconciliation_Dispatcher/
-│
-├── Main.xaml
-├── project.json
-├── project.uiproj
-├── entry-points.json
-├── .gitignore
-├── README.md
-│
-└── Data/
-    └── Sample_Bank_Statement.xlsx
-Additional workflows may be moved into dedicated folders as the project grows.
-Example:
-Workflows/
-├── ReadBankStatement.xaml
-├── ValidateTransactions.xaml
-├── PrepareQueueData.xaml
-└── AddQueueItems.xaml
-Sample Data
-Only fictional or sanitized transaction data should be included in this repository.
-Real banking information, customer information, credentials, account numbers or production files must never be committed to source control.
-Example test file:
-Sample_Bank_Statement.xlsx
-Security
-Sensitive information must not be stored directly inside workflows or committed to GitHub.
-Examples include:
-Passwords
-API keys
-Customer banking information
-Production account numbers
-Access tokens
-Orchestrator credentials
-Production secrets should instead be managed using mechanisms such as:
-UiPath Orchestrator Assets
-Credential Assets
-External secret-management systems
-Environment-specific configuration
-Requirements
-To run the project on another computer:
-UiPath Studio Desktop
-Git
-Access to a UiPath Orchestrator environment
-Required UiPath activity packages
-An Orchestrator Queue named BR_RECON_QUEUE
-Sample or approved input data
-Running on Another PC
-Clone the repository:
-git clone https://github.com/YOUR_USERNAME/uipath-bank-reconciliation-dispatcher.git
-Open the cloned project using UiPath Studio.
-UiPath Studio will restore the dependencies defined by the project.
-Local Studio-generated metadata and cache files are intentionally excluded from Git source control and will be recreated automatically.
-Connect the Studio/Robot environment to the appropriate UiPath Orchestrator tenant.
-Make sure the following queue exists:
-BR_RECON_QUEUE
-Then run:
-Main.xaml
-Exception Strategy
-The Dispatcher should prevent invalid records from entering the transaction queue.
-Examples of validation failures include:
-Missing transaction reference
-Missing transaction amount
-Invalid date
-Invalid account information
-Duplicate transaction
-Invalid transaction format
-Transaction-processing errors are primarily handled by the Performer through REFramework.
-The Performer differentiates between:
-Business Exception
-and:
-System Exception
-System exceptions may be retried according to the configured Orchestrator/REFramework retry strategy.
-Disaster Recovery Strategy
-The queue-based architecture helps make the automation recoverable.
-If the Performer stops unexpectedly:
-Successfully processed queue items remain completed.
-Failed transactions can be identified.
-Recoverable system exceptions can be retried.
-New Performer sessions can continue processing remaining queue items.
-The complete batch does not need to restart.
-This reduces the risk of duplicate processing and improves operational resilience.
-Future Enhancements
-Planned improvements include:
-Advanced duplicate detection
-Automated reconciliation rules
-Configurable matching tolerances
-API-based transaction ingestion
-Database integration
-Automated reconciliation reports
-Email notifications
-Orchestrator monitoring
-Transaction dashboards
-Audit logging
-Enhanced disaster recovery
-Automated testing
-Technologies
-UiPath Studio
-UiPath Orchestrator
-REFramework
-Orchestrator Queues
-Microsoft Excel
-Git
-GitHub
-Related Project
-Bank Reconciliation Performer
-The second component of this solution uses UiPath REFramework to consume transactions from BR_RECON_QUEUE.
-It demonstrates:
-REFramework state machine architecture
-Queue transaction processing
-Business exceptions
-System exceptions
-Automatic retry
-Transaction status management
-Logging
-Recovery
-Reconciliation processing
-The Performer repository will be linked here once published.
-Purpose
-This project was developed as a portfolio implementation of enterprise UiPath automation architecture, with particular focus on:
-Financial-process automation
-Queue-based transaction processing
-Reliability
-Recoverability
-Maintainability
-Separation of responsibilities
-Enterprise RPA development practices
- 
-Then make one small change before committing: replace:
- 
-```tex
+
+```mermaid
+flowchart TD
+    A[Excel bank statement] --> B[Dispatcher]
+    B --> C[Archive source file]
+    C --> D[Validate statement]
+    D --> E[BankReconciliationQueue]
+    E --> F[REFramework Performer]
+    F --> G[Reconciliation report]
+    F --> H[Business exception queue]
+```
+
+## Features
+
+- Selects a bank statement using the `BankStatement_*.xlsx` pattern.
+- Requires exactly one matching input file.
+- Generates a run identifier for traceability.
+- Copies the source file into a run-specific archive folder.
+- Checks that the archive file exists.
+- Reads the `Transactions` worksheet.
+- Rejects empty statements and missing required columns.
+- Detects duplicate, non-empty bank transaction IDs within the statement.
+- Checks each row for a bank transaction ID and reference.
+- Normalizes currency values and validates NGN.
+- Collects validation errors before dispatching.
+- Creates an Orchestrator queue item for each validated transaction.
+
+## Technology
+
+- UiPath Studio Desktop
+- C# workflow expressions
+- UiPath Excel and System activities
+- UiPath Orchestrator queues
+- Excel input and file-based archiving
+
+## Input format
+
+Place one matching workbook in:
+
+`Data/Input/`
+
+Example filename:
+
+`BankStatement_20260917.xlsx`
+
+The workbook must contain a worksheet named `Transactions` with these columns:
+
+| Column | Purpose |
+|---|---|
+| BankTxnId | Bank transaction identifier |
+| AccountNumber | Account identifier, including leading zeros |
+| TransactionDate | Transaction date |
+| ValueDate | Value date |
+| Reference | Reference used for ledger matching |
+| Description | Transaction description |
+| Debit | Debit amount |
+| Credit | Credit amount |
+| Currency | Currency code |
+
+Use synthetic data for demonstrations. Store account numbers as text to preserve leading zeros.
+
+For compatibility with the current Performer, queue date values must use `yyyy-MM-dd`. Amounts may use plain digits or comma-separated thousands, with up to two decimal places. A dash represents zero.
+
+## Queue contract
+
+Queue name: `BankReconciliationQueue`
+
+Queue item Reference: trimmed `BankTxnId`
+
+Specific Content:
+
+| Key | Source |
+|---|---|
+| BankTxnId | BankTxnId column |
+| AccountNumber | AccountNumber column |
+| TransactionDate | TransactionDate column |
+| ValueDate | ValueDate column |
+| TransactionReference | Reference column |
+| Description | Description column |
+| Debit | Debit column |
+| Credit | Credit column |
+| Currency | Normalized Currency column |
+| RunId | Dispatcher run identifier |
+| SourceFile | Input filename |
+| ArchiveFilePath | Archived source path |
+
+The Excel column `Reference` is published as `TransactionReference`.
+
+## Setup and execution
+
+1. Clone the repository and open `project.json` in UiPath Studio.
+2. Restore the activity dependencies.
+3. Connect Studio and the Robot to your Orchestrator tenant.
+4. Create `BankReconciliationQueue` in an accessible folder.
+5. Review the Add Queue Item folder setting and replace any developer-specific workspace path.
+6. Create `Data/Input` and place one synthetic statement there.
+7. Confirm the worksheet name and required columns.
+8. Run the Dispatcher entry workflow.
+9. Verify the archived file and the new queue items.
+10. Run the companion Performer.
+
+Where unique queue references are enabled, submitting the same BankTxnId again can produce a duplicate-reference error.
+
+## Archive behavior
+
+Input files are copied to:
+
+`Data/Archive/<RunId>/<SourceFile>`
+
+This preserves the source used for a run. It is an archive mechanism; automatic recovery and resumption after a partial dispatch are not yet implemented.
+
+## Known limitations
+
+- One statement file is handled per run.
+- Currency validation currently permits NGN only.
+- Detailed amount and transaction-date validation occurs in the Performer.
+- A queue submission failure can leave a partially dispatched statement.
+- Duplicate checking within the workbook does not establish whether an item already exists in Orchestrator.
+- A local archive path may not be accessible from another robot machine.
+- Queue creation, permissions, and folder configuration require environment setup.
+
+## Planned improvements
+
+- Move remaining hardcoded settings into configuration.
+- Add dispatch checkpoints and safe resumption.
+- Document negative validation tests.
+- Add shared archive storage for multiple robot machines.
+- Add reconciliation against an API-backed ledger.
+
+## Author
+
+Ishaku Danladi
